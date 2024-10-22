@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('https://ifh.cc/g/mtLa2z.png'); 
+    background-size: contain; 
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 90vh; 
+    background-color:rgb(232, 220, 203); 
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    text-align: center;
+}
+.stickers img {
+    width: 90px;
+    height: 120px;
+    margin: 10px;
+}
+
+
+.sticker {
+    cursor: grab;
+}
