@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fullscreen p5.js Kaleidoscope Drawing</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden; 
+        }
+
+        .header-text {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 24px;
+            color: white;
+            font-family: Arial, sans-serif;
+            z-index: 1; 
+        }
+    </style>
+</head>
+<body>
+  
+    <div class="header-text">Draw the World of Your Dreams</div>
+
+    <script>
+        let symmetry = 6;
+        let angle = 360 / symmetry;
+
+        function setup() {
+            createCanvas(windowWidth, windowHeight);
+            angleMode(DEGREES);
+            background(50);
+        }
+
+        function draw() {
+            translate(width / 2, height / 2);
+
+            if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
+                let lineStartX = mouseX - width / 2;
+                let lineStartY = mouseY - height / 2;
+                let lineEndX = pmouseX - width / 2;
+                let lineEndY = pmouseY - height / 2;
+
+                if (mouseIsPressed === true) {
+                    let r = random(255);
+                    let g = random(255);
+                    let b = random(255);
+                    stroke(r, g, b);
+                    strokeWeight(3);
+
+                    for (let i = 0; i < symmetry; i++) {
+                        rotate(angle);
+                        line(lineStartX, lineStartY, lineEndX, lineEndY);
+
+                        push();
+                        scale(1, -1);
+                        line(lineStartX, lineStartY, lineEndX, lineEndY);
+                        pop();
+                    }
+                }
+            }
+        }
+
+        function windowResized() {
+            resizeCanvas(windowWidth, windowHeight); // 창 크기 변경 시 캔버스 크기 조정
+            background(50); // 창 크기 변경 시 배경 초기화
+        }
+    </script>
+</body>
+</html>
+
+
+
