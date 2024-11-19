@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Last journey</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, #0f1e5e, #3628a2, #9fbffe);
+            font-family: Arial, sans-serif;
+            color: white;
+            overflow: hidden;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #fff8d0;
+        }
+
+        #thankYouMessage {
+            position: absolute;
+            bottom: 20px;
+            opacity: 0;
+            font-size: 20px;
+            transition: opacity 3s ease-in-out;
+        }
+
+        .floating-text {
+            position: absolute;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            pointer-events: none;
+            animation: float 15s ease-in-out forwards;
+        }
+
+        @keyframes float {
+            from {
+                opacity: 1;
+                transform: translate(0, 0);
+            }
+            to {
+                opacity: 0;
+                transform: translate(50px, -100px) rotate(15deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <input id="dreamInput" type="text" placeholder="Write your dream here...">
+    <button onclick="submitDream()">Write Your Dream</button>
+    <div id="thankYouMessage">Thank you for dreaming with me</div>
+    <script>
+        function submitDream() {
+            const input = document.getElementById("dreamInput");
+            const text = input.value.trim();
+
+            if (text) {
+                createFloatingText(text);
+                input.value = "";
+            }
+        }
+
+        function createFloatingText(text) {
+            const span = document.createElement("span");
+            span.className = "floating-text";
+            span.textContent = text;
+
+        
+            span.style.left = `${Math.random() * 80 + 10}%`;
+            span.style.top = `${Math.random() * 80 + 10}%`;
+
+            document.body.appendChild(span);
+
+           
+            setTimeout(() => {
+                span.remove();
+            }, 5000);
+        }
+
+        
+        setTimeout(() => {
+            document.getElementById("thankYouMessage").style.opacity = 1;
+        }, 5000);
+    </script>
+</body>
+</html>
