@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count sheep</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('https://ifh.cc/g/joKFG9.jpg') no-repeat center center;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        button {
+            position: absolute;
+            bottom: 50px; 
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #ffe868;
+        }
+
+        .sheep {
+            position: absolute;
+            width: 100px;
+            display: none; 
+            pointer-events: none; 
+        }
+    </style>
+</head>
+<body>
+    <button onclick="spawnSheep()">Click and count sheep</button>
+    <div id="sheep-container"></div>
+
+    <script>
+        function spawnSheep() {
+            const sheepContainer = document.getElementById("sheep-container");
+
+        
+            const sheep = document.createElement("img");
+            sheep.src = "https://ifh.cc/g/b2HtdK.png"; 
+            sheep.classList.add("sheep");
+
+            
+            const xPos = Math.random() * window.innerWidth - 100; 
+            const yPos = Math.random() * window.innerHeight - 100; 
+            sheep.style.left = `${Math.max(0, xPos)}px`;
+            sheep.style.top = `${Math.max(0, yPos)}px`;
+
+            
+            sheepContainer.appendChild(sheep);
+
+            
+            sheep.style.display = "block";
+
+      
+            setTimeout(() => {
+                sheep.remove();
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
