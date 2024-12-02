@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <title>Rainy Day Dream</title>
     <link rel="stylesheet" href="style02.css">
+    <style>
+        .next-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: azure;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -20,7 +32,7 @@
     <audio id="thunder-sound" loop>
         <source src="9923A34D5D2635FE06.mp3" type="audio/mpeg">
     </audio>
-
+   
     <script>
         function rain(){
             let cloud = document.querySelector('.cloud');
@@ -54,8 +66,7 @@
                 audio.pause();
             }
         }
-    
     </script>
+    <a href="https://heimishpark.github.io/c1i/entry6.html" class="next-button">To Next</a>
 </body>
 </html>
-
