@@ -8,6 +8,9 @@ function showTeaInfo(teaType) {
     } else if (teaType === 'Matcha Tea') {
         teaDescription.textContent = 'Tea was introduced to Japan during the Nara period (710-793). It was also influenced by China, and most Japanese tea is considered to be green tea. Depending on cultivation methods, Japanese tea can be divided into two main types. Matcha, in particular, is known for its antioxidant properties, anti-aging effects, and potential role in cancer prevention.';
     }
+    else if (teaType === 'Fu-erh tea') {
+        teaDescription.textContent = 'Fu-erh tea, grown in Yunnan region, began appearing in records after the Qing Dynasty. During this period, drinking "Gongting tea in summer and Pu-erh tea in winter" became part of the imperial tea culture. Chinese medical texts also praised Pu-erh tea for aiding digestion, reducing fat, neutralizing toxins from meat, and benefiting the intestines. This made Pu-erh tea highly regarded and treated as a valuable beverage.';
+    }
     
 
     // 정보 섹션 표시
